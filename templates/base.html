@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,50 +10,34 @@
         * {
             font-family: 'Inter', sans-serif;
         }
-        
+
+        /* === Thème clair (par défaut) === */
         .gradient-bg { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
             overflow: hidden;
         }
-        
-        .gradient-bg::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-        }
-        
+
         .card-shadow { 
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
-        
+
         .card-shadow:hover {
             box-shadow: 0 15px 50px rgba(0,0,0,0.15);
             transform: translateY(-5px);
         }
-        
+
         .btn-primary {
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary::before {
             content: '';
             position: absolute;
             top: 50%;
-</html>
             left: 50%;
             width: 0;
             height: 0;
@@ -62,73 +46,204 @@
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
-        
+
         .btn-primary:hover::before {
             width: 300px;
         }
-        
-        .fade-in {
-            animation: fadeIn 0.6s ease-in;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .slide-up {
-            animation: slideUp 0.5s ease-out;
-        }
-        
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-        
-        .section-card {
-            transition: all 0.3s ease;
-        }
-        
-        .section-card:hover {
-            transform: scale(1.02);
-        }
-        
+
         .progress-bar {
             height: 4px;
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
             transition: width 0.3s ease;
         }
-        
+
         /* Scrollbar personnalisée */
         ::-webkit-scrollbar {
             width: 10px;
         }
-        
+
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
-        
+
         ::-webkit-scrollbar-thumb {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             border-radius: 10px;
         }
-        
+
         ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        /* === Thème sombre === */
+        [data-theme="dark"] .gradient-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        [data-theme="dark"] .card-shadow {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        [data-theme="dark"] .card-shadow:hover {
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+
+        [data-theme="dark"] .bg-white {
+            background-color: #1e293b;
+        }
+
+        [data-theme="dark"] .bg-gray-50 {
+            background-color: #0f172a;
+        }
+
+        [data-theme="dark"] .bg-blue-50 {
+            background-color: #1e3a8a;
+        }
+
+        [data-theme="dark"] .bg-green-50 {
+            background-color: #166534;
+        }
+
+        [data-theme="dark"] .bg-orange-50 {
+            background-color: #92400e;
+        }
+
+        [data-theme="dark"] .bg-gray-100 {
+            background-color: #334155;
+        }
+
+        [data-theme="dark"] .bg-gray-200 {
+            background-color: #475569;
+        }
+
+        [data-theme="dark"] .bg-gradient-to-r.from-blue-50.to-purple-50 {
+            background: linear-gradient(to right, #312e81, #553c9a);
+        }
+
+        [data-theme="dark"] .text-gray-800 {
+            color: #f8fafc;
+        }
+
+        [data-theme="dark"] .text-gray-600 {
+            color: #cbd5e1;
+        }
+
+        [data-theme="dark"] .text-blue-100 {
+            color: #dbeafe;
+        }
+
+        [data-theme="dark"] .text-white {
+            color: #f8fafc;
+        }
+
+        [data-theme="dark"] .text-gray-700 {
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .border-gray-300 {
+            border-color: #475569;
+        }
+
+        [data-theme="dark"] input, [data-theme="dark"] select {
+            background-color: #334155;
+            color: #f8fafc;
+            border-color: #475569;
+        }
+
+        [data-theme="dark"] .footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+        }
+
+        [data-theme="dark"] .footer a {
+            color: #cbd5e1;
+        }
+
+        [data-theme="dark"] .btn-primary {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        [data-theme="dark"] .progress-bar {
+            background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        /* === Boutons secondaires en thème sombre === */
+        [data-theme="dark"] .bg-gray-100 {
+            background-color: #334155;
+        }
+
+        [data-theme="dark"] .bg-gray-200 {
+            background-color: #475569;
+        }
+
+        [data-theme="dark"] .text-gray-700 {
+            color: #e2e8f0;
+        }
+
+        [data-theme="dark"] .hover\:bg-gray-200:hover {
+            background-color: #475569;
+        }
+
+        /* === Animation fade-in === */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        [data-theme="dark"] input:focus, [data-theme="dark"] select:focus {
+            border-color: #818cf8;
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .section-card {
+            transition: all 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: scale(1.02);
+        }
+
+        /* === Scrollbar thème sombre === */
+        [data-theme="dark"] ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        [data-theme="dark"] ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        [data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
         }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col">
     <header class="gradient-bg text-white py-8 relative">
-        <div class="container mx-auto px-4 relative z-10">
+        <div class="container mx-auto px-4 relative z-10 flex justify-between items-center">
             <h1 class="text-4xl md:text-5xl font-bold text-center fade-in">🎓 Prédicteur de Réussite Scolaire</h1>
-            <p class="text-center mt-3 text-blue-100 text-lg fade-in">Analysez les facteurs qui influencent vos résultats académiques</p>
+            <!-- Bouton thème -->
+            <button id="theme-toggle" class="text-xl p-2 rounded-full hover:bg-black/10 transition">
+                
+            </button>
         </div>
     </header>
 
@@ -136,10 +251,28 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="py-6 text-center text-gray-600">
+    <footer class="py-6 text-center text-gray-600 footer">
         <p class="text-sm">&copy; 2025 - Application éducative</p>
         <p class="text-xs mt-2 text-gray-500">Propulsé par l'Intelligence Artificielle</p>
     </footer>
-    
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Charger le thème sauvegardé
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+        themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        });
+    </script>
+
     {% block scripts %}{% endblock %}
 </body>
+</html>
