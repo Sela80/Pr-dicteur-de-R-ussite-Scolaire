@@ -1,3 +1,5 @@
+setuptools==68.0.0
+wheel==0.41.2
 Flask==2.3.2
 scikit-learn==1.0.2
 pandas==1.5.3
