@@ -17,104 +17,109 @@
             </div>
             
             <form id="predictionForm" action="{{ url_for('result') }}" method="POST" class="space-y-6">
-                                <!-- Section 1: Habitudes d'étude -->
+                <!-- Section 1: Habitudes d'étude -->
                 <div class="section-card bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500 shadow-sm">
                     <h3 class="text-lg font-semibold text-blue-800 mb-4">📚 Habitudes d'étude</h3>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                                                        <label class="block text-sm font-medium text-gray-700 mb-2">Heures d'étude/semaine</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Heures d'étude/semaine</label>
                             <input type="number" name="hours_studied" id="hours_studied" min="0" max="50" value="20" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 transition">
                             <span class="text-xs text-gray-500 mt-1 block">Valeur actuelle: <span id="hours_value" class="font-semibold">20</span> heures</span>
                         </div>
                         <div>
-                                                        <label class="block text-sm font-medium text-gray-700 mb-2">Assiduité (%)</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Assiduité (%)</label>
                             <input type="number" name="attendance" id="attendance" min="0" max="100" value="85" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 transition">
                             <span class="text-xs text-gray-500 mt-1 block">Valeur actuelle: <span id="attendance_value" class="font-semibold">85</span>%</span>
                         </div>
                     </div>
                     <div class="mt-4">
-                                                <label class="block text-sm font-medium text-gray-700 mb-2">Résultats précédents (/100)</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Résultats précédents (/100)</label>
                         <input type="number" name="previous_scores" id="previous_scores" min="0" max="100" value="75" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 transition">
                         <span class="text-xs text-gray-500 mt-1 block">Valeur actuelle: <span id="previous_value" class="font-semibold">75</span>/100</span>
                     </div>
                 </div>
 
-                                <!-- Section 2: Environnement familial -->
+                <!-- Section 2: Environnement familial -->
                 <div class="section-card bg-green-50 p-6 rounded-xl border-l-4 border-green-500 shadow-sm">
                     <h3 class="text-lg font-semibold text-green-800 mb-4">👨‍👩‍👧‍👦 Environnement familial</h3>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Implication parentale</label>
                             <select name="parental_involvement" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 transition">
-                                <option value="Low">Faible</option>
-                                <option value="Medium" selected>Moyenne</option>
-                                <option value="High">Élevée</option>
+                                <option value="Faible">Faible</option>
+                                <option value="Moyenne" selected>Moyenne</option>
+                                <option value="Élevée">Élevée</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Niveau d'éducation parental</label>
                             <select name="parental_education" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 transition">
-                                <option value="High School">Lycée</option>
-                                <option value="College" selected>Université</option>
-                                <option value="Postgraduate">Études supérieures</option>
+                                <!-- ✅ CORRIGÉ: Valeurs en français -->
+                                <option value="Lycée">Lycée</option>
+                                <option value="Université" selected>Université</option>
+                                <option value="Études supérieures">Études supérieures</option>
                             </select>
                         </div>
                     </div>
                     <div class="mt-4">
                         <label class="block text-sm font-medium text-gray-700 mb-2">Revenu familial</label>
                         <select name="family_income" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-green-500 transition">
-                            <option value="Low">Faible</option>
-                            <option value="Medium" selected>Moyen</option>
-                            <option value="High">Élevé</option>
+                            <!-- ✅ CORRIGÉ -->
+                            <option value="Faible">Faible</option>
+                            <option value="Moyen" selected>Moyen</option>
+                            <option value="Élevé">Élevé</option>
                         </select>
                     </div>
                 </div>
 
-                                <!-- Section 3: Bien-être -->
+                <!-- Section 3: Bien-être -->
                 <div class="section-card bg-orange-50 p-6 rounded-xl border-l-4 border-orange-500 shadow-sm">
                     <h3 class="text-lg font-semibold text-orange-800 mb-4">💪 Bien-être</h3>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div>
-                                                        <label class="block text-sm font-medium text-gray-700 mb-2">Heures de sommeil/nuit</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Heures de sommeil/nuit</label>
                             <input type="number" name="sleep_hours" id="sleep_hours" min="4" max="12" step="0.5" value="7" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 transition">
                             <span class="text-xs text-gray-500 mt-1 block">Valeur actuelle: <span id="sleep_value" class="font-semibold">7</span> heures</span>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Niveau de motivation</label>
                             <select name="motivation_level" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-orange-500 transition">
-                                <option value="Low">Faible</option>
-                                <option value="Medium" selected>Moyenne</option>
-                                <option value="High">Élevée</option>
+                                <!-- ✅ CORRIGÉ -->
+                                <option value="Faible">Faible</option>
+                                <option value="Moyenne" selected>Moyenne</option>
+                                <option value="Élevée">Élevée</option>
                             </select>
                         </div>
                     </div>
                 </div>
 
-                                                <!-- Section 4: Infos personnelles -->
+                <!-- Section 4: Infos personnelles -->
                 <div class="section-card bg-gray-50 p-6 rounded-xl border-l-4 border-gray-500 shadow-sm">
                     <h3 class="text-lg font-semibold text-gray-800 mb-4">👤 Informations personnelles</h3>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Genre</label>
                         <select name="gender" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-gray-500 transition">
-                            <option value="Male">Masculin</option>
-                            <option value="Female" selected>Féminin</option>
+                            <!-- ✅ CORRIGÉ -->
+                            <option value="Masculin">Masculin</option>
+                            <option value="Féminin" selected>Féminin</option>
                         </select>
                     </div>
                 </div>
 
-                                <!-- Autres champs (optionnels mais nécessaires pour le modèle) -->
+                <!-- Autres champs (nécessaires pour le modèle) -->
                 <input type="hidden" name="tutoring_sessions" value="2">
                 <input type="hidden" name="physical_activity" value="3">
-                <input type="hidden" name="distance_home" value="Moderate">
-                <input type="hidden" name="access_resources" value="Medium">
-                <input type="hidden" name="internet_access" value="Yes">
-                <input type="hidden" name="teacher_quality" value="Medium">
-                <input type="hidden" name="learning_disabilities" value="No">
-                <input type="hidden" name="school_type" value="Public">
-                <input type="hidden" name="peer_influence" value="Neutral">
-                <input type="hidden" name="extracurricular" value="Yes">
+                <input type="hidden" name="distance_home" value="10">
+                <input type="hidden" name="age" value="18">
+                <input type="hidden" name="access_resources" value="Moyen">
+                <input type="hidden" name="internet_access" value="Oui">
+                <input type="hidden" name="teacher_quality" value="Moyenne">
+                <input type="hidden" name="learning_disabilities" value="Non">
+                <input type="hidden" name="school_type" value="Publique">
+                <input type="hidden" name="peer_influence" value="Neutre">
+                <input type="hidden" name="extracurricular" value="Oui">
 
-                                <button type="submit" id="submitBtn" class="btn-primary w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition transform hover:scale-105 shadow-lg">
+                <button type="submit" id="submitBtn" class="btn-primary w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-6 rounded-xl font-bold text-lg hover:from-blue-700 hover:to-purple-700 transition transform hover:scale-105 shadow-lg">
                     <span id="btnText"> Prédire mon résultat</span>
                     <span id="btnLoader" class="hidden">
                         <svg class="animate-spin inline-block h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -131,7 +136,7 @@
                     </a>
                 </div>
             </form>
-</div>
+        </div>
     </div>
 </div>
 {% endblock %}
